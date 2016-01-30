@@ -1,0 +1,23 @@
+{
+  "name": "zoo_app",
+  "version": "1.0.0",
+  "description": "zoo database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moriz23/zoo_app.git"
+  },
+  "author": "Mohammed Rizvi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moriz23/zoo_app/issues"
+  },
+  "homepage": "https://github.com/moriz23/zoo_app#readme",
+  "dependencies": {
+    "mysql": "^2.10.2",
+    "prompt": "^0.2.14"
+  }
+}
