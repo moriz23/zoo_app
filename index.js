@@ -82,12 +82,38 @@ var zoo = {
       connection.query("SELECT COUNT(*) AS total FROM animals WHERE type = ?", [result.animal_type], function(err, results, fields)
         if (err) throw err;
         console.log("Total " + result.animal_type " : " results[0].total);
-        currentScope.visit();
-        currentScope.view(currentScope);
+      });
+      currentScope.visit();
+      currentScope.view(currentScope);
     }); 
   },
 
+  care: function(input_scope) {
+    var currentScope = input_scope;
+    console.log("Enter city name NY/SF");
+    prompt.get(["city_name"], function(err, result) {
+      connection.query("SELECT COUNT(*) AS total FROM animals, caretakers WHERE animals.caretakers_id AND caretakers.city = ?", [result.city_name], function(err, results, fields)
+        if (err) throw err;
+        console.log("Total animals: " + results[0].total);
+      });
+      currentScope.visit();
+      currentScope.view(currentScope);
+    });
+  },
 
-};
+  animId: function(input_scope) {
+    var currentScope = input_scope;
+    console.log("Enter ID of the animal you want to visit");
+    prompt.get(["animId"], (err, result) {
+      connection.query("SELECT * FROM animals WHERE id = ?", [result.animal_id], function(err, results, fields) {
+        if (err) throw err;
+        else {
+          console.log('Animal ID: ' + results[0].id);
+        }
+      });
+      currentScope.visit();
+      currentScope.view(currentScope);
+    });
+  },
 
 
